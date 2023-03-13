@@ -1,7 +1,10 @@
 import Head from "next/head";
-import Link from "next/link";
+import Image from "next/image";
+import { useGetImages } from "./api/images";
 
 export default function Home() {
+  const images = useGetImages();
+
   return (
     <>
       <Head>
@@ -10,8 +13,23 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <Link href="/users">Users</Link>
+      <header>Gallery view List view toggle</header>
+
+      <main className="p-10 flex justify-center w-full ">
+        <div className="grid grid-cols-3 gap-10  items-center">
+          {images.data?.map((img) => (
+            <div key={img.name}>
+              <Image
+                className="object-cover"
+                src={img.src}
+                alt={img.name}
+                height={200}
+                width={400}
+              />
+              {/* <b>{img.name}</b> */}
+            </div>
+          ))}
+        </div>
       </main>
     </>
   );
