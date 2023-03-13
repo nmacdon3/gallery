@@ -1,11 +1,66 @@
 import Head from "next/head";
 import Image from "next/image";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { useGetImages } from "./api/images";
+import { TfiLayoutSliderAlt } from "react-icons/tfi";
+import { BsGrid } from "react-icons/bs";
+import classnames from "classnames";
+import { IconType } from "react-icons";
+
+type ViewType = "list" | "gallery";
+
+const ViewToggleIcon = ({
+  icon,
+  isToggled,
+}: {
+  icon: { value: IconType };
+  isToggled: boolean;
+}) => {
+  return (
+    <icon.value
+      className={classnames(
+        "h-6 w-6 transition-all duration-500 ease-in-out",
+        isToggled ? "text-black" : "text-white/50 hover:text-white"
+      )}
+    />
+  );
+};
+
+const ViewToggle = ({
+  view,
+  setView,
+}: {
+  view: ViewType;
+  setView: Dispatch<SetStateAction<ViewType>>;
+}) => {
+  return (
+    <div className="flex gap-8 rounded-full bg-black px-4 py-2 w-28 h-14 relative">
+      <div
+        className={classnames(
+          "bg-white rounded-full h-10 w-10 absolute top-2 z-0 transition-all ease-in-out duration-500",
+          view === "gallery" ? "-translate-x-2" : "translate-x-12"
+        )}
+      ></div>
+      <button className="z-10" onClick={() => setView("gallery")}>
+        <ViewToggleIcon
+          icon={{ value: BsGrid }}
+          isToggled={view === "gallery"}
+        />
+      </button>
+      <button className="z-10" onClick={() => setView("list")}>
+        <ViewToggleIcon
+          icon={{ value: TfiLayoutSliderAlt }}
+          isToggled={view === "list"}
+        />
+      </button>
+    </div>
+  );
+};
 
 export default function Home() {
   const images = useGetImages();
-  const [view, setView] = useState<"list" | "gallery">("gallery");
+  const [view, setView] = useState<ViewType>("gallery");
+  console.log("🚀 ~ file: index.tsx:63 ~ Home ~ view:", view);
 
   return (
     <>
@@ -18,8 +73,7 @@ export default function Home() {
 
       <main className="p-10">
         <header>
-          <button onClick={() => setView("gallery")}>Gallery view</button>{" "}
-          <button onClick={() => setView("list")}>List view</button>
+          <ViewToggle view={view} setView={setView} />
         </header>
         {view === "gallery" ? (
           <div className="flex justify-center w-full ">
