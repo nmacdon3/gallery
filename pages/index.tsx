@@ -1,9 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
+import { useState } from "react";
 import { useGetImages } from "./api/images";
 
 export default function Home() {
   const images = useGetImages();
+  const [view, setView] = useState<"list" | "gallery">("gallery");
 
   return (
     <>
@@ -13,23 +15,45 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>Gallery view List view toggle</header>
 
-      <main className="p-10 flex justify-center w-full ">
-        <div className="grid grid-cols-3 gap-10  items-center">
-          {images.data?.map((img) => (
-            <div key={img.name}>
-              <Image
-                className="object-cover"
-                src={img.src}
-                alt={img.name}
-                height={200}
-                width={400}
-              />
-              {/* <b>{img.name}</b> */}
+      <main className="p-10">
+        <header>
+          <button onClick={() => setView("gallery")}>Gallery view</button>{" "}
+          <button onClick={() => setView("list")}>List view</button>
+        </header>
+        {view === "gallery" ? (
+          <div className="flex justify-center w-full ">
+            <div className="grid grid-cols-3 gap-10  items-center">
+              {images.data?.map((img) => (
+                <div key={img.name}>
+                  <Image
+                    className="object-cover"
+                    src={img.src}
+                    alt={img.name}
+                    height={200}
+                    width={400}
+                  />
+                  {/* <b>{img.name}</b> */}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ) : (
+          <div className="flex items-center h-screen gap-24 overflow-x-scroll pl-96 snap-x">
+            {images.data?.map((img) => (
+              <div key={img.name} className="w-96 shrink-0 snap-center">
+                <Image
+                  className="object-cover"
+                  src={img.src}
+                  alt={img.name}
+                  height={600}
+                  width={600}
+                />
+                {/* <b>{img.name}</b> */}
+              </div>
+            ))}
+          </div>
+        )}
       </main>
     </>
   );
