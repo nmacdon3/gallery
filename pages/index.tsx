@@ -6,6 +6,14 @@ import { TfiLayoutSliderAlt } from "react-icons/tfi";
 import { BsGrid } from "react-icons/bs";
 import classnames from "classnames";
 import { IconType } from "react-icons";
+import { Poiret_One } from "next/font/google";
+
+const font = Poiret_One({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["system-ui", "arial"],
+});
 
 type ViewType = "list" | "gallery";
 
@@ -19,7 +27,7 @@ const ViewToggleIcon = ({
   return (
     <icon.value
       className={classnames(
-        "h-6 w-6 transition-all duration-500 ease-in-out",
+        "h-5 w-5 transition-all duration-500 ease-in-out",
         isToggled ? "text-black" : "text-white/50 hover:text-white"
       )}
     />
@@ -34,11 +42,11 @@ const ViewToggle = ({
   setView: Dispatch<SetStateAction<ViewType>>;
 }) => {
   return (
-    <div className="flex gap-8 rounded-full bg-black px-4 py-2 w-28 h-14 relative">
+    <div className="flex gap-8 rounded-full bg-black/30 backdrop-blur-lg px-5 py-2 w-28 h-11 relative">
       <div
         className={classnames(
-          "bg-white rounded-full h-10 w-10 absolute top-2 z-0 transition-all ease-in-out duration-500",
-          view === "gallery" ? "-translate-x-2" : "translate-x-12"
+          "bg-white rounded-full h-7 w-12 absolute top-2 z-0 transition-all ease-in-out duration-500",
+          view === "gallery" ? "-translate-x-3" : "translate-x-9"
         )}
       ></div>
       <button className="z-10" onClick={() => setView("gallery")}>
@@ -60,7 +68,6 @@ const ViewToggle = ({
 export default function Home() {
   const images = useGetImages();
   const [view, setView] = useState<ViewType>("gallery");
-  console.log("🚀 ~ file: index.tsx:63 ~ Home ~ view:", view);
 
   return (
     <>
@@ -71,12 +78,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="p-10">
-        <header>
+      <main
+        className={classnames(
+          "transition-all ease-in-out duration-1000",
+          font.className
+        )}
+      >
+        <header className="absolute top-0 left-0 py-10 px-20 text-6xl flex items-center justify-between w-full">
+          <h1>Nathan MacDonald </h1>
           <ViewToggle view={view} setView={setView} />
         </header>
         {view === "gallery" ? (
-          <div className="flex justify-center w-full ">
+          <div className="flex justify-center w-full overflow-y-scroll overflow-x-hidden py-40 h-screen">
             <div className="grid grid-cols-3 gap-10  items-center">
               {images.data?.map((img) => (
                 <div key={img.name}>
@@ -93,9 +106,9 @@ export default function Home() {
             </div>
           </div>
         ) : (
-          <div className="flex items-center h-screen gap-24 overflow-x-scroll pl-96 snap-x">
+          <div className="flex items-center overflow-y-hidden h-screen gap-24 overflow-x-scroll pl-96 snap-x">
             {images.data?.map((img) => (
-              <div key={img.name} className="w-96 shrink-0 snap-center">
+              <div key={img.name} className="w-1/2 shrink-0 snap-center">
                 <Image
                   className="object-cover"
                   src={img.src}
