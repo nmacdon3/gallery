@@ -1,7 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import { StaticImageData } from "next/image";
-import useSWR from "swr";
 
 export interface ImageType {
   src: string;
@@ -27,10 +25,4 @@ export default function handler(
     { name: "Flat", src: "/FLAT.jpeg" },
     { name: "Flag", src: "/FLAG.jpeg" },
   ]);
-}
-
-export function useGetImages() {
-  return useSWR<ImageType[]>("/api/images", () =>
-    fetch("/api/images").then((r) => r.json())
-  );
 }
