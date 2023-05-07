@@ -1,11 +1,12 @@
-import Image from "next/image";
 import classnames from "classnames";
 import { useState } from "react";
-import ViewToggle, { ViewType } from "~/components/ViewToggle";
 import useSWR from "swr";
+
+import Header from "~/components/pages/home/Header";
+import Photo from "~/components/pages/home/Photo";
+import ViewToggle, { ViewType } from "~/components/ViewToggle";
+
 import { ImageType } from "./api/images";
-import Header from "../components/pages/home/Header";
-import Photo from "../components/pages/home/Photo";
 
 export function useGetImages() {
   return useSWR<ImageType[]>("/api/images", () =>
