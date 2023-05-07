@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ImageType } from "../api/images";
+import { ImageType } from "../../../pages/api/images";
 
 const Photo = ({ img }: { img: ImageType }) => {
   return (
