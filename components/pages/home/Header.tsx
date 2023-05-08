@@ -4,7 +4,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const Header = () => {
   return (
-    <header className="bg-white/70 backdrop-blur-lg text-sm md:text-xl font-bold absolute top-0 left-0 py-3 md:py-6 px-5 md:px-10 flex items-center  w-full justify-between z-100">
+    <header className="bg-white/70 backdrop-blur-lg text-sm md:text-xl font-bold absolute top-0 left-0  md:py-6 px-5 md:px-10 flex items-center  w-full justify-between z-100">
       <div className="flex items-center md:gap-6">
         <div className="h-8 w-8 md:h-10 md:w-10 relative shrink-0">
           <Image

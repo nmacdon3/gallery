@@ -22,8 +22,8 @@ export default function Home() {
     <>
       <main className={classnames("transition-all ease-in-out duration-1000")}>
         {view === "gallery" ? (
-          <div className="relative flex justify-center w-full overflow-y-scroll overflow-x-hidden py-40 h-screen">
-            <div className="grid grid-cols-3 gap-10  items-center">
+          <div className="relative flex justify-center w-full overflow-y-scroll overflow-x-hidden py-20 md:py-40 h-screen">
+            <div className="md:grid md:grid-cols-3 md:gap-10 space-y-10 md:space-y-0  md:items-center">
               {images.data?.map((img) => (
                 <Photo key={img.name} img={img} />
               ))}
@@ -42,7 +42,7 @@ export default function Home() {
           </div>
         )}
         <Header />
-        <div className="absolute bottom-10 left-10">
+        <div className="absolute bottom-10 left-10 md:visible invisible">
           <ViewToggle view={view} setView={setView} />
         </div>
       </main>
