@@ -9,13 +9,13 @@ const Photo = ({ img }: { img: ImageType }) => {
       className="group flex flex-col items-center justify-center"
     >
       <Image
-        className="object-cover transition duration-300  group-hover:opacity-50"
+        className="object-cover transition duration-300  md:group-hover:opacity-50"
         src={img.src}
         alt={img.name}
         height={200}
         width={400}
       />
-      <b className="absolute text-4xl font-bold transition duration-500 group-hover:visible invisible group-hover:-translate-y-4">
+      <b className="absolute text-4xl font-bold transition duration-500 md:group-hover:visible invisible group-hover:-translate-y-4">
         {img.name}
       </b>
     </div>

@@ -4,11 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <title>Nathan MacDonald Photography</title>
-        <meta
-          name="description"
-          content="Online store for buying prints (demo)"
-        />
+        <meta name="description" content="Online gallery / print shop" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

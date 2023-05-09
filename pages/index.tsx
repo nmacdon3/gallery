@@ -1,9 +1,9 @@
 import classnames from "classnames";
+import Head from "next/head";
 import { useState } from "react";
 import useSWR from "swr";
 
-import Header from "~/components/pages/home/Header";
-import Photo from "~/components/pages/home/Photo";
+import Photo from "~/components/Photo";
 import ViewToggle, { ViewType } from "~/components/ViewToggle";
 
 import { ImageType } from "./api/images";
@@ -20,6 +20,9 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Nathan MacDonald Photography</title>
+      </Head>
       <main className={classnames("transition-all ease-in-out duration-1000")}>
         {view === "gallery" ? (
           <div className="relative flex justify-center w-full overflow-y-scroll overflow-x-hidden py-20 md:py-40 h-screen">
@@ -41,7 +44,6 @@ export default function Home() {
             ))}
           </div>
         )}
-        <Header />
         <div className="absolute bottom-10 left-10 md:visible invisible">
           <ViewToggle view={view} setView={setView} />
         </div>
