@@ -25,7 +25,7 @@ export default function Home() {
       <main>
         {view === "gallery" ? (
           <div className="relative flex justify-center w-full overflow-y-scroll overflow-x-hidden py-20 md:py-40 h-screen">
-            <div className="md:grid md:grid-cols-3 md:gap-10 space-y-10 md:space-y-0  md:items-center">
+            <div className="md:grid md:grid-cols-3 md:gap-10 space-y-10 md:space-y-0  md:items-center md:px-10 ">
               {images.data?.map((img) => (
                 <Photo key={img.name} img={img} />
               ))}
