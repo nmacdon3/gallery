@@ -10,7 +10,7 @@ const Header = () => {
       <div className="flex items-center ">
         <div className="group relative">
           <Link href="/" className="flex items-center md:gap-6">
-            <div className="h-8 w-8 md:h-[2px]0 md:w-10 relative shrink-0">
+            <div className="h-8 w-8 md:h-10 md:w-10 relative shrink-0">
               <Image
                 className="object-cover rounded-full"
                 src="/Nathan.png"
