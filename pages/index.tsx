@@ -1,4 +1,3 @@
-import classnames from "classnames";
 import Head from "next/head";
 import { useState } from "react";
 import useSWR from "swr";
@@ -23,7 +22,7 @@ export default function Home() {
       <Head>
         <title>Nathan MacDonald Photography</title>
       </Head>
-      <main className={classnames("transition-all ease-in-out duration-1000")}>
+      <main>
         {view === "gallery" ? (
           <div className="relative flex justify-center w-full overflow-y-scroll overflow-x-hidden py-20 md:py-40 h-screen">
             <div className="md:grid md:grid-cols-3 md:gap-10 space-y-10 md:space-y-0  md:items-center">

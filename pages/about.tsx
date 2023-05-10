@@ -1,10 +1,21 @@
+import classNames from "classnames";
+import { Poppins } from "next/font/google";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { ReactNode } from "react";
 
+const font = Poppins({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["system-ui", "arial"],
+});
+
 const B = ({ children }: { children: ReactNode }) => {
-  return <b className="font-bold text-sky-600">{children}</b>;
+  return (
+    <b className={classNames("text-sky-600", font.className)}>{children}</b>
+  );
 };
 
 export default function About() {
@@ -26,9 +37,8 @@ export default function About() {
           <br />
           <p>
             I've been wanting to try out <B>Next.js</B> for a long time, so this
-            is my first stab at a Next application. It's far from perfect, and
-            there's still alot for me to learn, but I'm excited to keep chipping
-            away at it. You can check out the code{" "}
+            is my first stab at it. It's just a start, so I'm excited to keep
+            working on it over the next few months. You can check out the code{" "}
             <Link
               href="https://github.com/nmacdon3/gallery"
               className="underline decoration-sky-600"
@@ -47,7 +57,7 @@ export default function About() {
           <p>Thanks for checking out my project!</p>
           <br />
           <p>
-            Here's a picture of my son, <B>Moses</B>.
+            Here's one of my favorite pictures of my son, <B>Moses</B>.
           </p>
         </div>
         <Image
