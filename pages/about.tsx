@@ -27,18 +27,17 @@ export default function About() {
       <div className="flex flex-col md:flex-row-reverse md:items-center gap-12 md:justify-center overflow-y-scroll overflow-x-hidden h-screen text-lg md:text-xl px-5 md:px-36 pt-20 md:pt-9">
         <div>
           <p>
-            I am certainly <B>not</B> a photographer.
+            I am <B>not</B> a photographer.
           </p>
           <br />
           <p>
-            However, I <B>am</B> a web developer who loves spinning up small
-            projects in his spare time.
+            I <B>am</B> a web developer who loves spinning up small projects in
+            his spare time.
           </p>
           <br />
           <p>
-            I've been wanting to try out <B>Next.js</B> for a long time, so this
-            is my first stab at it. It's just a start, so I'm excited to keep
-            working on it over the next few months. You can check out the code{" "}
+            This project was a fun way for me to try out Next.js. You can check
+            out the code{" "}
             <Link
               href="https://github.com/nmacdon3/gallery"
               className="underline decoration-sky-600"
@@ -51,7 +50,7 @@ export default function About() {
             I also wanted to try my hand at a photography site. As a hobby
             designer, I love photography sites for their <B>minimal</B> and{" "}
             <B>calming</B> interfaces. If I was hired to design a photography
-            site, it would probably look something like this.
+            site, it might look something like this.
           </p>
           <br />
           <p>Thanks for checking out my project!</p>

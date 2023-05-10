@@ -22,8 +22,8 @@ const Header = () => {
               Nathan MacDonald Photography
             </h1>
           </Link>
-          <div className="transition-all h-[2px] w-0 group-hover:w-[170px] bg-black absolute right-[153px] duration-500 opacity-0 group-hover:opacity-100"></div>
-          <div className="transition-all h-[2px] w-0 group-hover:w-[154px] bg-black absolute left-[233px] duration-500 opacity-0 group-hover:opacity-100"></div>
+          <div className="transition-all h-[2px] w-0 group-hover:w-[170px] bg-black absolute right-[153px] duration-500 opacity-0 md:group-hover:opacity-100"></div>
+          <div className="transition-all h-[2px] w-0 group-hover:w-[154px] bg-black absolute left-[233px] duration-500 opacity-0 md:group-hover:opacity-100"></div>
         </div>
         <div className="flex items-center gap-10 pl-6 md:ml-10 md:border-l border-black">
           <div className="group relative">
@@ -32,8 +32,8 @@ const Header = () => {
               <div className="h-[2px] w-full bg-black absolute"></div>
             ) : (
               <>
-                <div className="transition-all h-[2px] w-0 group-hover:w-[26px] bg-black absolute right-[32px] duration-500 opacity-0 group-hover:opacity-100"></div>
-                <div className="transition-all h-[2px] w-0 group-hover:w-8 bg-black absolute left-[26px] duration-500 opacity-0 group-hover:opacity-100"></div>
+                <div className="transition-all h-[2px] w-0 group-hover:w-[26px] bg-black absolute right-[32px] duration-500 opacity-0 md:group-hover:opacity-100"></div>
+                <div className="transition-all h-[2px] w-0 group-hover:w-8 bg-black absolute left-[26px] duration-500 opacity-0 md:group-hover:opacity-100"></div>
               </>
             )}
           </div>
@@ -42,8 +42,8 @@ const Header = () => {
               Instagram
             </Link>
 
-            <div className="transition-all h-[2px] w-0 group-hover:w-[51px] bg-black absolute right-[50px] duration-500 opacity-0 group-hover:opacity-100"></div>
-            <div className="transition-all h-[2px] w-0 group-hover:w-[51px] bg-black absolute left-[50px] duration-500 opacity-0 group-hover:opacity-100"></div>
+            <div className="transition-all h-[2px] w-0 group-hover:w-[51px] bg-black absolute right-[50px] duration-500 opacity-0 md:group-hover:opacity-100"></div>
+            <div className="transition-all h-[2px] w-0 group-hover:w-[51px] bg-black absolute left-[50px] duration-500 opacity-0 md:group-hover:opacity-100"></div>
           </div>
         </div>
       </div>
