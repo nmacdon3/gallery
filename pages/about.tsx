@@ -24,7 +24,7 @@ export default function About() {
       <Head>
         <title>About - Nathan MacDonald Photography</title>
       </Head>
-      <div className="flex flex-col md:flex-row-reverse md:items-center gap-12 md:justify-center overflow-y-scroll overflow-x-hidden h-screen text-lg md:text-xl px-5 md:px-36 pt-20 md:pt-9">
+      <div className="flex flex-col lg:flex-row-reverse md:items-center gap-12 lg:justify-center overflow-y-scroll overflow-x-hidden h-screen text-lg lg:text-xl px-5 md:px-10 lg:px-36 pt-20 md:pt-32 lg:pt-9">
         <div>
           <p>
             I am <B>not</B> a photographer.
